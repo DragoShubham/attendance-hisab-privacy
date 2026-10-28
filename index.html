@@ -4,104 +4,237 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy | Attendance Hisab</title>
-  <meta name="description" content="Privacy Policy for Attendance Hisab">
+  <meta name="description" content="Privacy Policy for Attendance Hisab - Workforce Attendance, Wages & Payroll Management Application.">
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;line-height:1.65;color:#172033;background:#f6f8fb;margin:0}
+    body{font-family:system-ui,-apple-system,Arial,Helvetica,sans-serif;line-height:1.65;color:#172033;background:#f6f8fb;margin:0;padding:0}
     main{max-width:850px;margin:40px auto;padding:36px;background:#fff;border-radius:14px;box-shadow:0 3px 18px rgba(0,0,0,.07)}
-    h1{margin-top:0;color:#102a43} h2{margin-top:30px;color:#183b56}
-    a{color:#1769aa} .date{color:#667085} li{margin:7px 0}
-    .note{background:#eef6ff;border-left:4px solid #2f80ed;padding:12px 16px;margin:20px 0}
-    footer{margin-top:35px;padding-top:20px;border-top:1px solid #e5e7eb;color:#667085;font-size:14px}
+    h1{margin-top:0;color:#102a43;font-size:28px}
+    h2{margin-top:32px;color:#183b56;font-size:21px;border-bottom:1px solid #edf2f7;padding-bottom:6px}
+    h3{margin-top:22px;color:#244b6e;font-size:17px}
+    a{color:#1769aa;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .date{color:#667085;font-size:14px;margin-bottom:20px}
+    li{margin:8px 0}
+    ul,ol{padding-left:24px}
+    .note{background:#eef6ff;border-left:4px solid #2f80ed;padding:14px 18px;margin:22px 0;border-radius:0 8px 8px 0}
+    .action-box{background:#fdf6ed;border-left:4px solid #e67e22;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0}
+    .table-wrapper{overflow-x:auto;margin:18px 0}
+    table{width:100%;border-collapse:collapse;font-size:14px}
+    th,td{padding:10px 12px;border:1px solid #e5e7eb;text-align:left}
+    th{background:#f8fafc;color:#1e293b}
+    code{background:#f1f5f9;color:#0f172a;padding:2px 6px;border-radius:4px;font-size:13px}
+    footer{margin-top:40px;padding-top:22px;border-top:1px solid #e5e7eb;color:#667085;font-size:14px}
+    .nav-link{display:inline-block;margin-top:6px;font-weight:600}
+    @media (max-width:640px){
+      main{margin:15px;padding:20px;border-radius:10px}
+      h1{font-size:24px}
+      h2{font-size:19px}
+    }
   </style>
 </head>
 <body>
 <main>
   <h1>Privacy Policy for Attendance Hisab</h1>
-  <p class="date"><strong>Effective date:</strong> September 15, 2026</p>
+  <p class="date"><strong>Effective date:</strong> October 28, 2026</p>
 
-  <p>Attendance Hisab ("the App") is a workforce attendance, wage and payroll management application provided by <strong>Shubham Kumar</strong> ("we", "us", or "our"). This Privacy Policy explains how we collect, use, store, protect, and delete information when you use Attendance Hisab.</p>
+  <p>Attendance Hisab ("the App") is an offline-first workforce attendance, wage, and payroll management application for Android provided by <strong>Shubham Kumar</strong> (operating as <strong>Drago Shubham</strong>, "we", "us", or "our"). This Privacy Policy explains transparently how we collect, use, store, synchronize, protect, and delete information when you use Attendance Hisab (Application ID: <code>com.drago.attendancehisab</code>).</p>
 
   <div class="note">
-    <strong>Important:</strong> Attendance Hisab is intended for workforce recordkeeping. It is not a bank, lender, investment service, insurance service, or government application.
+    <strong>Important:</strong> Attendance Hisab is a private business recordkeeping utility intended for contractors, small business owners, and supervisors. It is not a bank, financial institution, lender, money transmitter, investment platform, insurance provider, or government service.
+  </div>
+
+  <div class="action-box">
+    <strong>Looking to Delete Your Account or Associated Data?</strong><br>
+    You have full control over your information. You can permanently delete your account and all associated cloud and local data either directly inside the app or online without needing the app installed. Visit our dedicated <a href="delete-account.html" class="nav-link">Account &amp; Data Deletion Request Page &rarr;</a>
   </div>
 
   <h2>1. Information We Collect</h2>
+  <p>We believe in data minimization. We only collect and process data necessary to provide workforce recordkeeping, secure authentication, cloud synchronization, and in-app advertising:</p>
 
-  <h3>Account information</h3>
-  <p>Depending on the sign-in method used by the App, we may collect information such as your name, phone number, email address, account identifier, and authentication information needed to provide your account.</p>
+  <h3>A. Account &amp; Authentication Information (Firebase Authentication)</h3>
+  <p>To secure your account and synchronize records across devices, the App uses <strong>Google Firebase Phone Authentication</strong>:</p>
+  <ul>
+    <li><strong>Mobile Phone Number:</strong> Collected when you sign in or register to deliver a one-time verification code (SMS OTP).</li>
+    <li><strong>Firebase User Identifier (UID):</strong> A unique, random internal account identifier assigned by Firebase Authentication (e.g. <code>users/{uid}</code>) to associate and isolate your workforce records.</li>
+    <li>We do not collect or store account passwords. Phone sign-in is passwordless and authenticated directly via SMS OTP.</li>
+  </ul>
 
-  <h3>Workforce information</h3>
-  <p>If you use the App to manage workers, we may collect information you enter about workers, such as their name, phone number, worker type, wage or salary, overtime settings, joining date, project/site information, and notes.</p>
+  <h3>B. Workforce &amp; Contractor Information (Stored Locally &amp; Cloud Firestore)</h3>
+  <p>Information you voluntarily enter to manage your staff and workers:</p>
+  <ul>
+    <li>Worker profiles: Worker name, contact phone number, worker type (daily wage or monthly fixed salary), standard daily working hours, and custom overtime rules.</li>
+    <li>Project / site details: Worksite names and project references used to categorize attendance.</li>
+    <li>Contractor profile: Optional business name and contractor contact name displayed on wage statements.</li>
+  </ul>
 
-  <h3>Attendance and payroll information</h3>
-  <p>We may collect and store information you enter or generate through the App, including attendance status, attendance dates, hours worked, overtime, wages, advances, payments, deductions, bonuses, payroll records, and wage summaries.</p>
+  <h3>C. Attendance, Advances &amp; Payroll Records (Stored Locally &amp; Cloud Firestore)</h3>
+  <p>Records created and managed during day-to-day operations:</p>
+  <ul>
+    <li>Daily attendance: Attendance status (Present, Half-day, Absent), attendance date, and decimal overtime hours.</li>
+    <li>Financial transactions: Cash advances given, periodic payments or wage settlements disbursed, dates, payment modes, and operational notes.</li>
+    <li>Payroll computations: System-calculated monthly gross earnings, total overtime earnings, advance deductions, and final net balance payable.</li>
+  </ul>
 
-  <h3>Reminders and app settings</h3>
-  <p>The App may store your reminder preferences, such as whether daily attendance reminders are enabled and the selected reminder time. Notification permission may be requested by Android when required.</p>
+  <h3>D. Advertising &amp; Device Identifiers (Google AdMob SDK)</h3>
+  <p>To support the free availability of the application, Attendance Hisab integrates the <strong>Google Mobile Ads SDK (Google AdMob)</strong> to display banner and interstitial advertisements. When advertisements are requested or displayed, the Google AdMob SDK may automatically collect certain device and diagnostic information as governed by Google's privacy standards, including:</p>
+  <ul>
+    <li><strong>Advertising Identifiers:</strong> Mobile advertising identifiers, such as the Google Advertising ID (GAID) on Android devices. Users can reset or delete this identifier at any time in Android settings.</li>
+    <li><strong>Approximate Location:</strong> Coarse/approximate geographic location inferred from IP address to deliver relevant advertising.</li>
+    <li><strong>Device &amp; Network Diagnostics:</strong> Device manufacturer, hardware model, operating system version, network carrier, radio type (Wi-Fi/cellular), and screen specifications.</li>
+    <li><strong>Ad Interaction Metrics:</strong> Information regarding ad impressions, user clicks, ad load durations, and crash/diagnostic logs for ad performance and fraud prevention.</li>
+  </ul>
+  <p><em>Note:</em> Attendance Hisab does <strong>NOT</strong> collect fine GPS location, contacts lists, camera images, microphone audio, financial account credentials, or biometric data.</p>
 
-  <h3>Device and technical information</h3>
-  <p>We may receive limited technical information necessary to operate, secure, troubleshoot, and improve the App, such as app version, operating system information, and diagnostic information, where supported by the services used by the App.</p>
+  <h3>E. Reminders &amp; Notification Settings</h3>
+  <p>If you enable daily attendance reminders, your preferred reminder time is stored locally on your device. The App requests the standard Android notification permission (<code>POST_NOTIFICATIONS</code>) solely to schedule local device notifications reminding you to mark attendance.</p>
 
   <h2>2. How We Use Information</h2>
-  <p>We use information to:</p>
+  <p>We use the collected information strictly for legitimate operational purposes:</p>
   <ul>
-    <li>Create and maintain user accounts.</li>
-    <li>Provide attendance, wage, overtime, advance, payment, and payroll features.</li>
-    <li>Synchronize your data across supported sessions or devices.</li>
-    <li>Provide worker and contractor management features.</li>
-    <li>Send attendance reminders when you enable them.</li>
-    <li>Provide customer support and respond to requests.</li>
-    <li>Maintain security, prevent misuse, and troubleshoot technical problems.</li>
-    <li>Improve the reliability and functionality of the App.</li>
-    <li>Comply with applicable legal obligations.</li>
+    <li><strong>Account Management:</strong> Authenticating your identity and maintaining your user account via Firebase Authentication.</li>
+    <li><strong>Core Functionality:</strong> Storing, calculating, and managing worker attendance, overtime hours, advances, and payroll balances.</li>
+    <li><strong>Offline-First Synchronization:</strong> Caching records locally on your device and automatically synchronizing them with Cloud Firestore when an internet connection is available.</li>
+    <li><strong>Ad Serving:</strong> Serving banner and interstitial advertisements via Google AdMob in compliance with Google advertising policies.</li>
+    <li><strong>Statement Generation:</strong> Creating formatted wage summaries that you can review, download, or share voluntarily.</li>
+    <li><strong>Reminders:</strong> Delivering local push reminders when scheduled by you.</li>
+    <li><strong>Customer Support &amp; Compliance:</strong> Responding to user inquiries, resolving technical issues, and fulfilling account or data deletion requests.</li>
   </ul>
 
   <h2>3. How Information Is Shared</h2>
-  <p>We do not sell your personal information.</p>
-  <p>Information may be processed by service providers that help us operate the App, such as authentication, hosting, database, cloud synchronization, analytics, security, or technical infrastructure providers, where applicable. Such providers may process information only as needed to provide their services to us and subject to appropriate contractual or security protections.</p>
-  <p>We may also disclose information when required by applicable law, legal process, or a valid governmental request, or when reasonably necessary to protect the rights, safety, security, or property of users or the service.</p>
+  <p><strong>We do not sell, rent, or trade your personal or workforce data to data brokers or third parties.</strong></p>
+  <p>Information is shared only with trusted technical service providers and external services as detailed below:</p>
+
+  <h3>A. Cloud Infrastructure &amp; Technical Service Providers</h3>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Service Provider</th>
+          <th>Purpose</th>
+          <th>Data Processed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Google Firebase Authentication</strong><br>(Google LLC)</td>
+          <td>User authentication &amp; SMS OTP verification</td>
+          <td>Phone number, auth timestamps, internal UID.</td>
+        </tr>
+        <tr>
+          <td><strong>Google Cloud Firestore</strong><br>(Google LLC)</td>
+          <td>Secure cloud database &amp; cross-device synchronization</td>
+          <td>Encrypted workforce rosters, attendance logs, advances, payments, payroll records.</td>
+        </tr>
+        <tr>
+          <td><strong>Google AdMob</strong><br>(Google LLC)</td>
+          <td>Serving in-app banner and interstitial ads</td>
+          <td>Advertising ID (GAID), IP-derived coarse location, device diagnostics, ad interaction metrics.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Third-party service providers are bound by strict confidentiality and security commitments. You can review Google's privacy practices at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a> and <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google Advertising Technologies</a>.</p>
+
+  <h3>B. Voluntary Sharing via WhatsApp and External Communication Apps</h3>
+  <p>Attendance Hisab includes features allowing contractors to generate and share monthly wage slips or attendance summaries with workers via WhatsApp or standard device sharing mechanisms:</p>
+  <ul>
+    <li>This feature is <strong>completely voluntary and initiated solely by you</strong>.</li>
+    <li>When you tap "Share via WhatsApp" or "Share", the App generates a plain-text statement and passes it to WhatsApp (<code>wa.me</code>) or the Android system share chooser.</li>
+    <li>Once information is transmitted outside of the App, it leaves our systems and is governed by WhatsApp's Privacy Policy (<a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">WhatsApp Legal Terms</a>) and the recipient's privacy practices. We encourage you to ensure you have worker consent before sharing wage details over messaging channels.</li>
+  </ul>
+
+  <h3>C. Legal Requirements</h3>
+  <p>We may disclose information if required to do so by applicable law, court order, regulatory mandate, or valid governmental authority, or when necessary to protect the legal rights, safety, or security of our users or the public.</p>
 
   <h2>4. Worker and Payroll Privacy</h2>
-  <p>Workforce and payroll information is intended to be accessible only to the account and authorized users to whom the information belongs. Knowing a worker's phone number alone should not provide access to that worker's private payroll information.</p>
-  <p>Users are responsible for entering accurate information and for using worker-management and sharing features only when they have an appropriate reason and authorization to do so.</p>
+  <p>Attendance Hisab is built with tenant isolation:</p>
+  <ul>
+    <li>All workforce and payroll data in Cloud Firestore is strictly isolated under your unique user ID (<code>users/{uid}/...</code>).</li>
+    <li>Cloud Firestore security rules enforce that only the authenticated user owning that account can read or write their records.</li>
+    <li>Workers cannot view contractor records simply by knowing a phone number.</li>
+    <li>Contractors and employers are responsible for ensuring that worker details entered into the App are accurate and handled in compliance with local workplace regulations.</li>
+  </ul>
 
   <h2>5. Data Security</h2>
-  <p>We use reasonable technical and organizational measures designed to protect information against unauthorized access, alteration, disclosure, or destruction. Where supported by the services used by the App, data may be protected in transit using encryption and access controls.</p>
-  <p>No internet or electronic storage system can be guaranteed to be completely secure.</p>
+  <p>We employ multi-layered technical safeguards designed to protect your data:</p>
+  <ul>
+    <li><strong>Encryption in Transit:</strong> All communications between the App, Firebase servers, and AdMob servers are secured using industry-standard TLS 1.3/HTTPS encryption.</li>
+    <li><strong>Strict Database Rules:</strong> Cloud Firestore security rules strictly enforce authentication checks (<code>request.auth.uid == userId</code>), preventing unauthorized read or write access from other users.</li>
+    <li><strong>Local Device Sandboxing:</strong> Offline data is stored in device application storage protected by the Android operating system application sandbox.</li>
+  </ul>
+  <p>While we implement rigorous security measures, no electronic transmission or digital storage method is 100% impenetrable. We encourage users to maintain device lock protection (PIN, fingerprint, or password) on their phones.</p>
 
   <h2>6. Data Retention</h2>
-  <p>We retain account and workforce information for as long as reasonably necessary to provide the App and its features, maintain legitimate business and security records, resolve disputes, and comply with applicable legal obligations.</p>
+  <p>We retain your workforce, attendance, and payroll records for as long as your account remains active and you choose to maintain them. You can edit or delete individual workers, attendance entries, or transactions at any time within the App.</p>
+  <p>If you choose to delete your account, your data will be permanently purged in accordance with our deletion policy outlined in Section 7.</p>
 
   <h2>7. Account Deletion and Data Deletion</h2>
-  <p>You may request deletion of your Attendance Hisab account through the account deletion feature provided in the App or by contacting us at the email address below.</p>
-  <p>When an account deletion request is completed, we will delete the account and associated personal information that we are required and able to delete, subject to information that must be retained for legal, security, fraud-prevention, or other legitimate obligations. Where data must be retained, it will be retained only for the applicable purpose and period.</p>
+  <p>You have the absolute right to delete your Attendance Hisab account and all associated personal and workforce data at any time.</p>
+
+  <h3>How to Request Account &amp; Data Deletion</h3>
+  <ol>
+    <li><strong>In-App Deletion (Immediate):</strong> Open Attendance Hisab &rarr; navigate to <strong>Settings</strong> &rarr; scroll to <strong>Delete Account</strong> &rarr; type <code>DELETE</code> to confirm &rarr; tap <strong>Confirm Delete</strong>.</li>
+    <li><strong>Web / Email Request (Without Reinstalling):</strong> If you have uninstalled the App or cannot access your device, you can request full account and data deletion online through our dedicated <a href="delete-account.html">Account &amp; Data Deletion Request Page</a> or by emailing us at <a href="mailto:dragoking.dk0@gmail.com">dragoking.dk0@gmail.com</a> with your registered phone number. We process verified requests within 7 business days.</li>
+  </ol>
+
+  <h3>What Data Is Deleted</h3>
+  <p>When account deletion is completed, our systems permanently and irreversibly erase:</p>
+  <ul>
+    <li>Your authentication profile and registered phone number from Firebase Authentication.</li>
+    <li>Your master user document in Cloud Firestore (<code>users/{uid}</code>).</li>
+    <li>All worker rosters and profiles (<code>users/{uid}/workers</code>).</li>
+    <li>All daily attendance logs and overtime records (<code>users/{uid}/attendance</code>).</li>
+    <li>All cash advance entries (<code>users/{uid}/advances</code>).</li>
+    <li>All payment and settlement records (<code>users/{uid}/payments</code>).</li>
+    <li>All monthly payroll summaries and calculations (<code>users/{uid}/payrolls</code>).</li>
+    <li>All worksite and project categories (<code>users/{uid}/projects</code>).</li>
+    <li>All local cached data, pending synchronization queues, and application preferences on the device.</li>
+  </ul>
+
+  <h3>Legitimate Exceptions to Deletion</h3>
+  <p>In accordance with privacy regulations and technical realities, the following exceptions apply:</p>
+  <ul>
+    <li><strong>Externally Exported Files:</strong> Any CSV spreadsheets or wage summary files that you previously exported to your device storage or Google Drive cannot be deleted by our server; you must delete these local files manually from your device.</li>
+    <li><strong>Messages Sent Externally:</strong> Any wage slips or messages shared via WhatsApp or SMS remain on the recipient's device and WhatsApp servers according to their respective policies.</li>
+    <li><strong>Transient Security Logs:</strong> Temporary technical logs generated by Google Cloud infrastructure for security monitoring, DDoS prevention, and fraud detection expire automatically in accordance with standard Google Cloud retention schedules.</li>
+    <li><strong>Employer Statutory Obligations:</strong> Contractors and business owners may have independent statutory obligations under local labor laws to retain wage registers; deleting your Attendance Hisab account clears our digital systems but does not alter your statutory recordkeeping obligations.</li>
+  </ul>
 
   <h2>8. Children's Privacy</h2>
-  <p>Attendance Hisab is a general workforce/business application and is not directed to children. We do not knowingly design the service to collect personal information from children.</p>
+  <p>Attendance Hisab is a commercial business and workforce recordkeeping application. It is not directed at or designed for children under the age of 18 (or under 13 where applicable). We do not knowingly collect or solicit personal information from children. If we become aware that personal information of a child has been collected, we will take immediate steps to delete the information and associated account.</p>
 
   <h2>9. Third-Party Services and Links</h2>
-  <p>The App may rely on third-party infrastructure or services to provide authentication, cloud storage, notifications, analytics, or other functionality. Their handling of information may be governed by their own privacy policies. We encourage users to review the privacy practices of relevant third-party services.</p>
-
-  <h2>10. Your Choices</h2>
+  <p>The App relies on vetted third-party software development kits (SDKs) to perform core technical functions. Their handling of data is governed by their respective privacy disclosures:</p>
   <ul>
-    <li>You can review and update information available through your account and App settings.</li>
-    <li>You can disable attendance reminders through the App settings or device notification settings.</li>
-    <li>You can request account deletion as described above.</li>
+    <li><strong>Firebase Authentication &amp; Firestore:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase Privacy &amp; Security Documentation</a></li>
+    <li><strong>Google AdMob:</strong> <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google Advertising &amp; AdMob Policies</a></li>
+    <li><strong>WhatsApp:</strong> <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">WhatsApp Privacy Policy</a></li>
+  </ul>
+
+  <h2>10. Your Choices &amp; Rights</h2>
+  <p>You maintain full control over your information:</p>
+  <ul>
+    <li><strong>Access &amp; Edit:</strong> You can view, modify, or correct your worker and attendance records at any time within the App.</li>
+    <li><strong>Notification Controls:</strong> You can enable or disable daily attendance reminder notifications at any time in the App Settings or through Android Notification Settings.</li>
+    <li><strong>Personalized Ads Opt-Out:</strong> You can reset or delete your Android Advertising ID (GAID) or opt out of ad personalization by visiting: <em>Settings &rarr; Google &rarr; Ads</em> on your Android device.</li>
+    <li><strong>Account Deletion:</strong> You can permanently delete your account and all associated data at any time as detailed in Section 7.</li>
   </ul>
 
   <h2>11. Changes to This Privacy Policy</h2>
-  <p>We may update this Privacy Policy when the App, our data practices, or applicable requirements change. The updated version will be posted at this URL with a revised effective date. We encourage you to review this policy periodically.</p>
+  <p>We may periodically update this Privacy Policy to reflect enhancements in App functionality, evolving legal standards, or updates to third-party SDK requirements. When changes are published, the revised policy will be posted on this page with an updated "Effective date" at the top. We encourage you to review this page periodically.</p>
 
   <h2>12. Contact Us</h2>
-  <p>If you have questions, concerns, or requests relating to privacy or your personal information, contact:</p>
+  <p>If you have any questions, feedback, or requests concerning this Privacy Policy, your personal data, or account deletion, please contact us:</p>
   <p>
-    <strong>Drago Shubham</strong><br>
-    Email: <a href="mailto:dragoking.dk0@gmail.com">dragoking.dk0@gmail.com</a>
+    <strong>Developer:</strong> Shubham Kumar (operating as Drago Shubham)<br>
+    <strong>Application:</strong> Attendance Hisab (<code>com.drago.attendancehisab</code>)<br>
+    <strong>Contact Email:</strong> <a href="mailto:dragoking.dk0@gmail.com">dragoking.dk0@gmail.com</a><br>
+    <strong>Account Deletion Portal:</strong> <a href="delete-account.html">Account &amp; Data Deletion Page</a>
   </p>
 
   <footer>
-    <strong>Attendance Hisab</strong><br>
-    Attendance, Wages &amp; Payroll
+    <strong>Attendance Hisab</strong> &mdash; Workforce Attendance, Wages &amp; Payroll Management<br>
+    &copy; 2026 Shubham Kumar. All rights reserved. &bull; <a href="delete-account.html">Request Account Deletion</a>
   </footer>
 </main>
 </body>
